@@ -10,6 +10,10 @@ public class SoundManager : MonoBehaviour {
 	void Awake () 
 	{
 		instance = this;
+		if (mySource == null)
+		{
+			this.gameObject.AddComponent<AudioSource>();
+		}
 		mySource = GetComponent<AudioSource>();
 	}
 	

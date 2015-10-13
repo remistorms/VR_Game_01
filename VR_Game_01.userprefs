@@ -1,0 +1,17 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/DirectionVectorTrigger.cs">
+    <Files>
+      <File FileName="Assets/Scripts/Player_Move.cs" Line="101" Column="47" />
+      <File FileName="Assets/Pointer_Manager.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Player_Inventory.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/PointerScript.cs" Line="1" Column="1" />
+      <File FileName="Assets/PushableObject.cs" Line="16" Column="46" />
+      <File FileName="Assets/DirectionVectorTrigger.cs" Line="27" Column="36" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

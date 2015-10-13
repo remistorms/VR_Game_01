@@ -5,7 +5,7 @@
 	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
-	<ProjectGuid>{B7458052-7E40-4AC3-5D30-CD08980414C1}</ProjectGuid>
+	<ProjectGuid>{C9087BD8-8C22-815B-AC0F-3D064AD060A1}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
 	<RootNamespace></RootNamespace>
@@ -69,21 +69,29 @@
      <Compile Include="Assets\Cardboard\Scripts\VRDevices\CardboardAndroidDevice.cs" />
      <Compile Include="Assets\Cardboard\Scripts\VRDevices\CardboardiOSDevice.cs" />
      <Compile Include="Assets\Cardboard\Scripts\VRDevices\UnityEditorDevice.cs" />
-     <Compile Include="Assets\MiddleDoor.cs" />
      <Compile Include="Assets\Scripts\AudioInfoScript.cs" />
      <Compile Include="Assets\Scripts\ClickToMove.cs" />
+     <Compile Include="Assets\Scripts\DirectionVectorTrigger.cs" />
      <Compile Include="Assets\Scripts\HUD_Script.cs" />
      <Compile Include="Assets\Scripts\InteractScript.cs" />
+     <Compile Include="Assets\Scripts\MiddleDoor.cs" />
      <Compile Include="Assets\Scripts\ObservableScript.cs" />
      <Compile Include="Assets\Scripts\OpenDoorButton.cs" />
      <Compile Include="Assets\Scripts\PickupScript.cs" />
+     <Compile Include="Assets\Scripts\PlayerItemScript.cs" />
+     <Compile Include="Assets\Scripts\Player_Inventory.cs" />
+     <Compile Include="Assets\Scripts\Player_Move.cs" />
      <Compile Include="Assets\Scripts\PointerScript.cs" />
+     <Compile Include="Assets\Scripts\Pointer_Manager.cs" />
+     <Compile Include="Assets\Scripts\PushableObject.cs" />
      <Compile Include="Assets\Scripts\SkeletonTrigger.cs" />
      <Compile Include="Assets\Scripts\SoundManager.cs" />
+     <Compile Include="Assets\Scripts\SwitchScript.cs" />
      <Compile Include="Assets\Scripts\VR_Raycaster.cs" />
      <None Include="Assets\Cardboard\Legacy\Resources\SkyboxMesh.shader" />
      <None Include="Assets\Cardboard\Legacy\Resources\GUIScreen.shader" />
      <None Include="Assets\Plugins\Android\AndroidManifest.xml" />
+     <None Include="Assets\Plugins\Pixelplacement\iTween\ReadMe!\ReadMe!.txt" />
      <None Include="Assets\Plugins\Legacy\Android\AndroidManifest.xml" />
      <None Include="Assets\Cardboard\Resources\RadialUndistortionEffect.shader" />
      <None Include="Assets\Cardboard\Resources\SolidColor.shader" />
@@ -99,6 +107,10 @@
  <Reference Include="UnityEditor.iOS.Extensions.Xcode">
  <HintPath>/Applications/Unity 5.1.1/Unity.app/Contents/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
  </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
+      <Project>{04402A55-81EF-2E8E-F975-1E81124E6FBF}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
