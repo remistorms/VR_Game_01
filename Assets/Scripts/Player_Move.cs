@@ -71,7 +71,18 @@ public class Player_Move : MonoBehaviour {
 			myHit.collider.GetComponent<PushableObject>().Push((-1)* myHit.normal);
 		}
 
+		if (Cardboard.SDK.Triggered && surfaceHit == "Observable" && myHit.distance < 2.0f) 
+		{
+			myHit.collider.GetComponent<ObservableScript>().ReadInfo();
+		}
+
+		//Shoot Energy Ball
+		if (Cardboard.SDK.Triggered && Player_Inventory.instance.hasEnergyRod && myHit.collider.tag != "Floor") 
+		{
+			EnergyRodScript.instance.ShootEnergyBall();
+		}
 	}
+
 
 	//Handles the cursor icon position and graphic
 	void HandleCursor()
@@ -127,7 +138,16 @@ public class Player_Move : MonoBehaviour {
 
 		default:
 			Pointer_Manager.instance.transform.rotation = Quaternion.FromToRotation(Vector3.forward, myHit.normal);
-			Pointer_Manager.instance.SwitchPointer(0);
+			if (Player_Inventory.instance.hasEnergyRod == false) 
+			{
+				Pointer_Manager.instance.SwitchPointer(0);
+			}
+
+			if (Player_Inventory.instance.hasEnergyRod == true) 
+			{
+				Pointer_Manager.instance.SwitchPointer(5);
+			}
+
 			break;
 		}
 	
