@@ -12,12 +12,14 @@ public class Player_Move : MonoBehaviour {
 	public string surfaceHit;
 	public Transform player_backback;
 	public float min_pushable_distance = 2.5f;
+	RectTransform myPointerRect;
 	
 	void Awake()
 	{
 		instance = this;
 		myAgent = GetComponent<NavMeshAgent>();
 		myAgent.updateRotation = false;
+		myPointerRect = Pointer_Manager.instance.GetComponent<RectTransform>();
 	}
 	
 	void LateUpdate()
@@ -100,6 +102,7 @@ public class Player_Move : MonoBehaviour {
 			//Footprints
 			Pointer_Manager.instance.transform.rotation = Quaternion.LookRotation(myHit.normal, (myHit.point - mainCamera.transform.position));
 			Pointer_Manager.instance.SwitchPointer(1);
+			//myPointerRect.sizeDelta = new Vector2(0.7f, 0.7f);
 			break;
 
 		case "Pushable":
@@ -121,7 +124,8 @@ public class Player_Move : MonoBehaviour {
 		case "Observable":
 			//Eye
 			Pointer_Manager.instance.transform.rotation = Quaternion.FromToRotation(Vector3.forward, myHit.normal);
-			Pointer_Manager.instance.SwitchPointer(3);
+			Pointer_Manager.instance.SwitchPointer(0);
+		
 			break;
 
 		case "Pickup":
