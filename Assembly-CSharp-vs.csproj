@@ -89,6 +89,7 @@
      <Compile Include="Assets\Scripts\PointerScript.cs" />
      <Compile Include="Assets\Scripts\Pointer_Manager.cs" />
      <Compile Include="Assets\Scripts\PushableObject.cs" />
+     <Compile Include="Assets\Scripts\RotateScript.cs" />
      <Compile Include="Assets\Scripts\SkeletonTrigger.cs" />
      <Compile Include="Assets\Scripts\SoundManager.cs" />
      <Compile Include="Assets\Scripts\SwitchScript.cs" />
