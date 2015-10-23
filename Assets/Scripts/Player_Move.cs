@@ -13,6 +13,7 @@ public class Player_Move : MonoBehaviour {
 	//public Transform player_backback;
 	public float min_pushable_distance = 2.5f;
 	RectTransform myPointerRect;
+	public GameObject might_block;
 	
 	void Awake()
 	{
@@ -151,6 +152,23 @@ public class Player_Move : MonoBehaviour {
 				Player_Move.instance.GetComponent<NavMeshAgent>().SetDestination(Player_Move.instance.transform.position);
 		}
 
+		if (Cardboard.SDK.Triggered && surfaceHit == "Might" && Player_Inventory.instance.player_backpack.transform.FindChild("Stone_of_Might") != null) 
+		{
+			Debug.Log("Activated Stone of Might, CREATE BLOCK");
+			Vector3 position_to_instanciate = new Vector3(myHit.collider.transform.position.x, 2f ,myHit.collider.transform.position.z);
+
+			if (GameObject.Find("Might Block") == null) 
+			{
+				GameObject clone = Instantiate(might_block, position_to_instanciate, Quaternion.identity) as GameObject;
+				clone.name = "Might Block";
+			}
+
+			if (GameObject.Find("Might Block") != null) 
+			{
+				GameObject.Find("Might Block").transform.position = position_to_instanciate;
+			}
+
+		}
 	}
 
 
