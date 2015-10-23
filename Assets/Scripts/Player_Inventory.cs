@@ -7,7 +7,9 @@ public class Player_Inventory : MonoBehaviour {
 
 	public static Player_Inventory instance;
 	public List<GameObject> player_inventory;
-	public bool hasEnergyRod = false;
+	public GameObject player_backpack;
+	public int max_capacity = 1;
+	GameObject last_picked_up_item;
 
 	// Use this for initialization
 	void Start () 
@@ -17,28 +19,35 @@ public class Player_Inventory : MonoBehaviour {
 
 	void Update()
 	{
-		if (hasEnergyRod) 
-		{
-			EnergyRodScript.instance.gameObject.SetActive(true);
-		}
+
 	}
 	public void AddItemToInventory(GameObject item)
 	{
-		player_inventory.Add(item);
-		if (item.name == "Energy Rod") 
+		last_picked_up_item = item;
+		if (player_inventory.Count < max_capacity) 
 		{
-			hasEnergyRod = true;
-			EnergyRodScript.instance.gameObject.SetActive(true);
+			player_inventory.Add(item);
+			item.transform.SetParent(player_backpack.transform);
+			item.transform.localPosition = new Vector3(0,0,0);
+			item.SetActive(false);
+
 		}
+
+		if (player_inventory.Count <= max_capacity) 
+		{
+			RemoveItemToInventory(player_inventory[0]);
+			player_inventory.Add(item);
+			item.transform.SetParent(player_backpack.transform);
+			item.transform.localPosition = new Vector3(0,0,0);
+			item.SetActive(false);
+		}
+
 	}
 
 	public void RemoveItemToInventory(GameObject item)
 	{
+		item.SetActive (true);
 		player_inventory.Remove(item);
-		if (item.name == "Energy Rod") 
-		{
-			hasEnergyRod = false;
-			EnergyRodScript.instance.gameObject.SetActive(true);
-		}
+		player_backpack.transform.FindChild (item.name).SetParent(GameObject.Find("_Main_GO").transform);
 	}
 }

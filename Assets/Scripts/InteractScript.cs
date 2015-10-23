@@ -3,9 +3,6 @@ using System.Collections;
 
 public class InteractScript : MonoBehaviour {
 	
+	public string message_for_player;
 
-	public void InteractWithThis()
-	{
-		GetComponent<OpenDoorButton>().OpenDoor();
-	}
 }

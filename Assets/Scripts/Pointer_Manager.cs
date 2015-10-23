@@ -8,6 +8,7 @@ public class Pointer_Manager : MonoBehaviour {
 	public GameObject pointer;
 	public Sprite[] myPointerSprites;
 	public Image myImage;
+	public Text myText;
 
 	// Use this for initialization
 	void Awake () 
