@@ -10,9 +10,10 @@ public class Player_Move : MonoBehaviour {
 	public NavMeshAgent myAgent;
 	public Vector3 myHitPoint;
 	public string surfaceHit;
-	public Transform player_backback;
+	//public Transform player_backback;
 	public float min_pushable_distance = 2.5f;
 	RectTransform myPointerRect;
+	public GameObject might_block;
 	
 	void Awake()
 	{
@@ -42,6 +43,73 @@ public class Player_Move : MonoBehaviour {
 		myRay = mainCamera.ScreenPointToRay(new Vector2(Screen.width/2, Screen.height/2));
 	}
 
+	//Handles the cursor icon position and graphic
+	void HandleCursor()
+	{
+		//Handles Position and Rotation of the cursor
+		myHitPoint = myHit.point;
+		Pointer_Manager.instance.transform.position = myHitPoint;
+		//Pointer_Manager.instance.transform.rotation = Quaternion.LookRotation(myHit.normal, (myHit.point - mainCamera.transform.position));
+		//Pointer_Manager.instance.transform.rotation = Quaternion.FromToRotation(Vector3.forward, myHit.normal);
+		switch (surfaceHit) 
+			
+		{
+
+		case "Floor":
+			//Footprints
+			Pointer_Manager.instance.transform.rotation = Quaternion.LookRotation(myHit.normal, (myHit.point - mainCamera.transform.position));
+			Pointer_Manager.instance.SwitchPointer(1);
+			//myPointerRect.sizeDelta = new Vector2(0.7f, 0.7f);
+			break;
+			
+		case "Pushable":
+			//Hand
+			if (myHit.distance > min_pushable_distance) 
+			{
+				Pointer_Manager.instance.myImage.color = Color.white;
+				Pointer_Manager.instance.myText.text = "Push";
+			}
+			
+			if (myHit.distance <= min_pushable_distance) 
+			{
+				Pointer_Manager.instance.myImage.color = Color.cyan;
+			}
+			
+			Pointer_Manager.instance.transform.rotation = Quaternion.FromToRotation(Vector3.forward, myHit.normal);
+			Pointer_Manager.instance.SwitchPointer(2);
+			break;
+			
+		case "Observable":
+			//Eye
+			Pointer_Manager.instance.transform.rotation = Quaternion.FromToRotation(Vector3.forward, myHit.normal);
+			Pointer_Manager.instance.SwitchPointer(0);
+			
+			break;
+			
+		case "Pickup":
+			//ItemBox
+			Pointer_Manager.instance.transform.rotation = Quaternion.FromToRotation(Vector3.forward, myHit.normal);
+			Pointer_Manager.instance.SwitchPointer(4);
+			break;
+			
+		case "Hittable":
+			//Crosshair
+			Pointer_Manager.instance.transform.rotation = Quaternion.FromToRotation(Vector3.forward, myHit.normal);
+			Pointer_Manager.instance.SwitchPointer(5);
+			break;
+			
+		default:
+			// Not Hitting anything 
+			Pointer_Manager.instance.transform.rotation = Quaternion.FromToRotation(Vector3.forward, myRay.direction);
+			Pointer_Manager.instance.SwitchPointer(0);
+			break;
+		
+		}
+		
+	}
+
+
+
 	public void HandleAction()
 	{
 		//WALK
@@ -58,13 +126,10 @@ public class Player_Move : MonoBehaviour {
 		//Pick Up Item
 		if (Cardboard.SDK.Triggered && surfaceHit == "Pickup") 
 		{
-			Debug.Log("Grabbed Item");
-			StartCoroutine(ColorBlink(Color.cyan, 0.1f));
+
 			GameObject itemGrabbed = myHit.collider.gameObject;
 			Player_Inventory.instance.AddItemToInventory(itemGrabbed);
-			itemGrabbed.transform.SetParent(player_backback);
-			itemGrabbed.transform.localPosition = new Vector3(0,0,0);
-			itemGrabbed.SetActive(false);
+
 		}
 
 		if (Cardboard.SDK.Triggered && surfaceHit == "Pushable" && myHit.distance < min_pushable_distance) 
@@ -78,84 +143,35 @@ public class Player_Move : MonoBehaviour {
 			myHit.collider.GetComponent<ObservableScript>().ReadInfo();
 		}
 
-		//Shoot Energy Ball
-		if (Cardboard.SDK.Triggered && Player_Inventory.instance.hasEnergyRod && myHit.collider.tag != "Floor") 
+		//Use Stone of Will
+
+		if (Cardboard.SDK.Triggered && surfaceHit == "Teleporter" && Player_Inventory.instance.player_backpack.transform.FindChild("Stone_of_Will") != null) 
 		{
-			EnergyRodScript.instance.ShootEnergyBall();
+				Debug.Log("Activated Stone of Will, TELEPORT");
+				Player_Move.instance.gameObject.transform.position = Pointer_Manager.instance.pointer.transform.position;
+				Player_Move.instance.GetComponent<NavMeshAgent>().SetDestination(Player_Move.instance.transform.position);
+		}
+
+		if (Cardboard.SDK.Triggered && surfaceHit == "Might" && Player_Inventory.instance.player_backpack.transform.FindChild("Stone_of_Might") != null) 
+		{
+			Debug.Log("Activated Stone of Might, CREATE BLOCK");
+			Vector3 position_to_instanciate = new Vector3(myHit.collider.transform.position.x, 2f ,myHit.collider.transform.position.z);
+
+			if (GameObject.Find("Might Block") == null) 
+			{
+				GameObject clone = Instantiate(might_block, position_to_instanciate, Quaternion.identity) as GameObject;
+				clone.name = "Might Block";
+			}
+
+			if (GameObject.Find("Might Block") != null) 
+			{
+				GameObject.Find("Might Block").transform.position = position_to_instanciate;
+			}
+
 		}
 	}
 
 
-	//Handles the cursor icon position and graphic
-	void HandleCursor()
-	{
-		//Handles Position and Rotation of the cursor
-		myHitPoint = myHit.point;
-		Pointer_Manager.instance.transform.position = myHitPoint;
-		//Pointer_Manager.instance.transform.rotation = Quaternion.LookRotation(myHit.normal, (myHit.point - mainCamera.transform.position));
-		//Pointer_Manager.instance.transform.rotation = Quaternion.FromToRotation(Vector3.forward, myHit.normal);
-		switch (surfaceHit) 
-		
-		{
-
-		case "Floor":
-			//Footprints
-			Pointer_Manager.instance.transform.rotation = Quaternion.LookRotation(myHit.normal, (myHit.point - mainCamera.transform.position));
-			Pointer_Manager.instance.SwitchPointer(1);
-			//myPointerRect.sizeDelta = new Vector2(0.7f, 0.7f);
-			break;
-
-		case "Pushable":
-			//Hand
-			if (myHit.distance > min_pushable_distance) 
-			{
-				Pointer_Manager.instance.myImage.color = Color.white;
-			}
-
-			if (myHit.distance <= min_pushable_distance) 
-			{
-				Pointer_Manager.instance.myImage.color = Color.cyan;
-			}
-
-			Pointer_Manager.instance.transform.rotation = Quaternion.FromToRotation(Vector3.forward, myHit.normal);
-			Pointer_Manager.instance.SwitchPointer(2);
-			break;
-
-		case "Observable":
-			//Eye
-			Pointer_Manager.instance.transform.rotation = Quaternion.FromToRotation(Vector3.forward, myHit.normal);
-			Pointer_Manager.instance.SwitchPointer(0);
-		
-			break;
-
-		case "Pickup":
-			//ItemBox
-			Pointer_Manager.instance.transform.rotation = Quaternion.FromToRotation(Vector3.forward, myHit.normal);
-			Pointer_Manager.instance.SwitchPointer(4);
-			break;
-
-		case "Hittable":
-			//Crosshair
-			Pointer_Manager.instance.transform.rotation = Quaternion.FromToRotation(Vector3.forward, myHit.normal);
-			Pointer_Manager.instance.SwitchPointer(5);
-			break;
-
-		default:
-			Pointer_Manager.instance.transform.rotation = Quaternion.FromToRotation(Vector3.forward, myHit.normal);
-			if (Player_Inventory.instance.hasEnergyRod == false) 
-			{
-				Pointer_Manager.instance.SwitchPointer(0);
-			}
-
-			if (Player_Inventory.instance.hasEnergyRod == true) 
-			{
-				Pointer_Manager.instance.SwitchPointer(5);
-			}
-
-			break;
-		}
-	
-	}
 
 	IEnumerator ColorBlink(Color myColor, float timeToWait)
 	{
