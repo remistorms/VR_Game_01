@@ -9,17 +9,20 @@ public class StoneScript : MonoBehaviour {
 
 	void Awake()
 	{
-		original_position = this.transform.position;
-		stone_type = this.gameObject.name;
+		//original_position = this.transform.position;
+		//stone_type = this.gameObject.name;
 	}
+
+	/*
+
 	void OnEnable()
 	{
-		ResetPosition ();
+		//ResetPosition ();
 	}
 	// Use this for initialization
 	void ResetPosition () 
 	{
-		this.transform.position = original_position;
+	//	this.transform.position = original_position;
 	}
 
 	public void UseStoneOfWill()
@@ -40,5 +43,7 @@ public class StoneScript : MonoBehaviour {
 	public void UseStoneOfMight()
 	{
 		
-	}
+	} 
+	
+	*/
 }

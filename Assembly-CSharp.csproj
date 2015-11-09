@@ -6,7 +6,7 @@
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
 	<RootNamespace></RootNamespace>
-	<ProjectGuid>{266B520C-6D88-E0EB-7A02-BE2FB6176CD0}</ProjectGuid>
+	<ProjectGuid>{C9087BD8-8C22-815B-AC0F-3D064AD060A1}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
 	<AssemblyName>Assembly-CSharp</AssemblyName>
@@ -19,7 +19,7 @@
 	<DebugType>full</DebugType>
 	<Optimize>false</Optimize>
 	<OutputPath>Temp\bin\Debug\</OutputPath>
-	<DefineConstants>DEBUG;TRACE;UNITY_5_2_1;UNITY_5_2;UNITY_5;ENABLE_NEW_BUGREPORTER;ENABLE_2D_PHYSICS;ENABLE_4_6_FEATURES;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_FRAME_DEBUGGER;ENABLE_GENERICS;ENABLE_HOME_SCREEN;ENABLE_IMAGEEFFECTS;ENABLE_LIGHT_PROBES_LEGACY;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_PLUGIN_INSPECTOR;ENABLE_SHADOWS;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_UNET;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_METRICS;ENABLE_REFLECTION_BUFFERS;INCLUDE_DYNAMIC_GI;INCLUDE_GI;INCLUDE_IL2CPP;INCLUDE_DIRECTX12;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;ENABLE_LOCALIZATION;ENABLE_ANDROID_ATLAS_ETC1_COMPRESSION;UNITY_ANDROID;UNITY_ANDROID_API;ENABLE_SUBSTANCE;ENABLE_TEXTUREID_MAP;ENABLE_EGL;ENABLE_NETWORK;ENABLE_RUNTIME_GI;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYADS_RUNTIME;UNITY_UNITYADS_API;ENABLE_MONO;ENABLE_PROFILER;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN</DefineConstants>
+	<DefineConstants>DEBUG;TRACE;UNITY_5_2_2;UNITY_5_2;UNITY_5;ENABLE_NEW_BUGREPORTER;ENABLE_2D_PHYSICS;ENABLE_4_6_FEATURES;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_FRAME_DEBUGGER;ENABLE_GENERICS;ENABLE_HOME_SCREEN;ENABLE_IMAGEEFFECTS;ENABLE_LIGHT_PROBES_LEGACY;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_PLUGIN_INSPECTOR;ENABLE_SHADOWS;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_UNET;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_METRICS;ENABLE_REFLECTION_BUFFERS;INCLUDE_DYNAMIC_GI;INCLUDE_GI;INCLUDE_IL2CPP;INCLUDE_DIRECTX12;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;ENABLE_LOCALIZATION;ENABLE_ANDROID_ATLAS_ETC1_COMPRESSION;UNITY_ANDROID;UNITY_ANDROID_API;ENABLE_SUBSTANCE;ENABLE_TEXTUREID_MAP;ENABLE_EGL;ENABLE_NETWORK;ENABLE_RUNTIME_GI;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYADS_RUNTIME;UNITY_UNITYADS_API;ENABLE_MONO;ENABLE_PROFILER;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN</DefineConstants>
 	<ErrorReport>prompt</ErrorReport>
 	<WarningLevel>4</WarningLevel>
 	<NoWarn>0169</NoWarn>
@@ -38,10 +38,10 @@
 	<Reference Include="System.Core" />
 	<Reference Include="System.Xml.Linq" />
 	<Reference Include="UnityEngine">
-	  <HintPath>C:/Program Files/Unity 5.2/Editor/Data/Managed/UnityEngine.dll</HintPath>
+	  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
 	</Reference>
 	<Reference Include="UnityEditor">
-	  <HintPath>C:/Program Files/Unity 5.2/Editor/Data/Managed/UnityEditor.dll</HintPath>
+	  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
 	</Reference>
   </ItemGroup>
   <ItemGroup>
@@ -68,34 +68,40 @@
      <Compile Include="Assets\Cardboard\Scripts\VRDevices\CardboardAndroidDevice.cs" />
      <Compile Include="Assets\Cardboard\Scripts\VRDevices\CardboardiOSDevice.cs" />
      <Compile Include="Assets\Cardboard\Scripts\VRDevices\UnityEditorDevice.cs" />
-     <Compile Include="Assets\Scripts\AudioInfoScript.cs" />
-     <Compile Include="Assets\Scripts\ClickToMove.cs" />
-     <Compile Include="Assets\Scripts\DirectionVectorTrigger.cs" />
-     <Compile Include="Assets\Scripts\DontDestroy.cs" />
-     <Compile Include="Assets\Scripts\EnergyBallProjectile.cs" />
-     <Compile Include="Assets\Scripts\EnergyRodScript.cs" />
-     <Compile Include="Assets\Scripts\HUD_Script.cs" />
-     <Compile Include="Assets\Scripts\InteractScript.cs" />
-     <Compile Include="Assets\Scripts\LookAtTarget.cs" />
-     <Compile Include="Assets\Scripts\MiddleDoor.cs" />
-     <Compile Include="Assets\Scripts\ObservableScript.cs" />
-     <Compile Include="Assets\Scripts\OpenDoorButton.cs" />
-     <Compile Include="Assets\Scripts\PickupScript.cs" />
-     <Compile Include="Assets\Scripts\PlayerItemScript.cs" />
-     <Compile Include="Assets\Scripts\Player_Inventory.cs" />
-     <Compile Include="Assets\Scripts\Player_Move.cs" />
-     <Compile Include="Assets\Scripts\Player_Settings.cs" />
-     <Compile Include="Assets\Scripts\PointerScript.cs" />
-     <Compile Include="Assets\Scripts\Pointer_Manager.cs" />
-     <Compile Include="Assets\Scripts\PushableObject.cs" />
-     <Compile Include="Assets\Scripts\RotateScript.cs" />
-     <Compile Include="Assets\Scripts\SkeletonTrigger.cs" />
-     <Compile Include="Assets\Scripts\SoundManager.cs" />
-     <Compile Include="Assets\Scripts\StoneScript.cs" />
-     <Compile Include="Assets\Scripts\SwitchScript.cs" />
-     <Compile Include="Assets\Scripts\TeleporterScript.cs" />
-     <Compile Include="Assets\Scripts\VR_Raycaster.cs" />
-     <Compile Include="Assets\Scripts\WallSwitch.cs" />
+     <Compile Include="Assets\Scripts\NewScripts\LookAtMainCam.cs" />
+     <Compile Include="Assets\Scripts\NewScripts\ObservableScript.cs" />
+     <Compile Include="Assets\Scripts\NewScripts\PlayerClickHanlder.cs" />
+     <Compile Include="Assets\Scripts\NewScripts\PlayerCursorScript.cs" />
+     <Compile Include="Assets\Scripts\NewScripts\PlayerHUD.cs" />
+     <Compile Include="Assets\Scripts\NewScripts\VR_Raycaster.cs" />
+     <Compile Include="Assets\Scripts\Original Scripts\AudioInfoScript.cs" />
+     <Compile Include="Assets\Scripts\Original Scripts\ClickToMove.cs" />
+     <Compile Include="Assets\Scripts\Original Scripts\DirectionVectorTrigger.cs" />
+     <Compile Include="Assets\Scripts\Original Scripts\DontDestroy.cs" />
+     <Compile Include="Assets\Scripts\Original Scripts\EnergyBallProjectile.cs" />
+     <Compile Include="Assets\Scripts\Original Scripts\EnergyRodScript.cs" />
+     <Compile Include="Assets\Scripts\Original Scripts\HUD_Script.cs" />
+     <Compile Include="Assets\Scripts\Original Scripts\HookshotScript.cs" />
+     <Compile Include="Assets\Scripts\Original Scripts\InteractScript.cs" />
+     <Compile Include="Assets\Scripts\Original Scripts\LookAtTarget.cs" />
+     <Compile Include="Assets\Scripts\Original Scripts\MiddleDoor.cs" />
+     <Compile Include="Assets\Scripts\Original Scripts\OldPlayerMove.cs" />
+     <Compile Include="Assets\Scripts\Original Scripts\OpenDoorButton.cs" />
+     <Compile Include="Assets\Scripts\Original Scripts\PickupScript.cs" />
+     <Compile Include="Assets\Scripts\Original Scripts\PlayerItemScript.cs" />
+     <Compile Include="Assets\Scripts\Original Scripts\Player_Inventory.cs" />
+     <Compile Include="Assets\Scripts\Original Scripts\Player_Move.cs" />
+     <Compile Include="Assets\Scripts\Original Scripts\Player_Settings.cs" />
+     <Compile Include="Assets\Scripts\Original Scripts\PointerScript.cs" />
+     <Compile Include="Assets\Scripts\Original Scripts\Pointer_Manager.cs" />
+     <Compile Include="Assets\Scripts\Original Scripts\PushableObject.cs" />
+     <Compile Include="Assets\Scripts\Original Scripts\RotateScript.cs" />
+     <Compile Include="Assets\Scripts\Original Scripts\SkeletonTrigger.cs" />
+     <Compile Include="Assets\Scripts\Original Scripts\SoundManager.cs" />
+     <Compile Include="Assets\Scripts\Original Scripts\StoneScript.cs" />
+     <Compile Include="Assets\Scripts\Original Scripts\SwitchScript.cs" />
+     <Compile Include="Assets\Scripts\Original Scripts\TeleporterScript.cs" />
+     <Compile Include="Assets\Scripts\Original Scripts\WallSwitch.cs" />
      <None Include="Assets\Cardboard\Legacy\Resources\SkyboxMesh.shader" />
      <None Include="Assets\Cardboard\Legacy\Resources\GUIScreen.shader" />
      <None Include="Assets\Plugins\Android\AndroidManifest.xml" />
@@ -103,28 +109,22 @@
      <None Include="Assets\Plugins\Legacy\Android\AndroidManifest.xml" />
      <None Include="Assets\Cardboard\Resources\RadialUndistortionEffect.shader" />
      <None Include="Assets\Cardboard\Resources\SolidColor.shader" />
- <Reference Include="UnityEngine.Advertisements">
- <HintPath>C:/Program Files/Unity 5.2/Editor/Data/UnityExtensions/Unity/Advertisements/UnityEngine.Advertisements.dll</HintPath>
- </Reference>
  <Reference Include="UnityEngine.UI">
- <HintPath>C:/Program Files/Unity 5.2/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Networking">
- <HintPath>C:/Program Files/Unity 5.2/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.Analytics">
- <HintPath>C:/Program Files/Unity 5.2/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
  </Reference>
  <Reference Include="Mono.Cecil">
- <HintPath>C:/Program Files/Unity 5.2/Editor/Data/Managed/Mono.Cecil.dll</HintPath>
+ <HintPath>C:/Program Files/Unity/Editor/Data/Managed/Mono.Cecil.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.iOS.Extensions.Xcode">
- <HintPath>C:/Program Files/Unity 5.2/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
+ <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
-      <Project>{A67ED348-D07C-4E4B-974A-B432E944B0DA}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
+      <Project>{04402A55-81EF-2E8E-F975-1E81124E6FBF}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
